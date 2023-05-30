@@ -26,3 +26,10 @@ text-align: left;
 border-radius: 60px;
 padding: 8px 31px 8px 31px;
 }
+.swap-box{
+    background: linear-gradient(180deg, rgba(44, 43, 93, 0.6) 0%, rgba(34, 27, 55, 0.6) 100%);
+backdrop-filter: blur(2.5px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 30px;
+}
