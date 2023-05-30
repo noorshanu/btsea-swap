@@ -1,4 +1,5 @@
 import React from "react";
+import ConnectWalletBtn from "./ConnectWalletBtn";
 
 function Swap() {
   return (
@@ -11,6 +12,16 @@ function Swap() {
               <h2>BUY</h2>
             </div>
             <h2>Setting</h2>
+          </div>
+          <div>
+            input box 1
+          </div>
+          <div>
+            input box-2
+          </div>
+          <div className="mx-auto text-center flex justify-center">
+
+          <ConnectWalletBtn/>
           </div>
         </div>
       </div>
