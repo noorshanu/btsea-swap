@@ -50,3 +50,126 @@ height: 786px;
 left: calc(50% - 786px/2);
 top: -343px;
 }
+
+
+.popup-y.mount {
+    animation: inAnimation 300ms ease forwards;
+  }
+  
+  .popup-y.unmount {
+    animation: outAnimation 300ms ease forwards;
+  }
+
+
+  
+.popup-y {
+    --duration: 300ms;
+  }
+  
+  .popup-y.mount {
+    animation: inAnimation var(--duration) ease forwards;
+  }
+  
+  .popup-y.unmount {
+    animation: outAnimation var(--duration) ease forwards;
+  }
+  
+  @keyframes inAnimation {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -80%) scale(0.9);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+  
+  @keyframes outAnimation {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+  
+  .fade-z {
+    --duration: 300ms;
+  }
+  
+  .fade-z.mount {
+    animation: FadeIn var(--duration) ease forwards;
+  }
+  
+  .fade-z.unmount {
+    animation: FadeOut var(--duration) ease forwards;
+  }
+  
+  .fade-in {
+    -webkit-animation-name: fade-in;
+    animation-name: fade-in;
+    animation-duration: 300ms;
+    transition-timing-function: linear;
+  }
+  
+  .black-screen-animation {
+    --duration: 300ms;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+  }
+  
+  .black-screen-animation.mount {
+    animation: fade-in var(--duration) ease forwards;
+  }
+  
+  .black-screen-animation.unmount {
+    animation: fade-out var(--duration) ease forwards;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      display: flex;
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  .fade-out {
+    animation: fade-out 300ms forwards;
+  }
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .calendar-input::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+  }
+  
