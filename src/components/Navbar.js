@@ -1,121 +1,133 @@
 import React, { useState } from "react";
 import logoImg from "../assets/logo.png";
-// import bellIcon from "../assets/icons/Vector.png";
-import searchIcon from "../assets/icons/Vector (1).png";
-// import avatar from "../assets/icons/avatar.png";
 import { Link } from "react-router-dom";
 import ConnectWalletBtn from "./ConnectWalletBtn";
 
-const Navbar = () => {
-  let [openNav, setOpenNav] = useState(false);
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
+let navItems = [
+  {
+    label: "Bridge",
+    route: "/bridge",
+  },
+  {
+    label: "Swap",
+    route: "/",
+  },
+  {
+    label: "Launchpad",
+    route: "launchpad",
+  },
+];
+
+export default function Navbar() {
+  const route = "/";
   return (
-    <nav className="bg-transparent py-2">
-      <div className="mx-auto">
-        <div className="relative flex h-16 items-center justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400  hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-              onClick={() => {
-                setOpenNav(!openNav);
-              }}
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="block h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-              <svg
-                className="hidden h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <Link to="/">
-                <img
-                  className="block h-8 w-auto lg:hidden"
-                  src={logoImg}
-                  alt="Your Company"
-                />
-              </Link>
+    // bg-[#14141f]
+    <Popover className="relative bg-transparent z-10 bg-[#0E1128]">
+      <div className="fixed top-0 left-0 right-0 bg-[#0E1128] w-screen">
+        <div className=" max-w-[87rem] mx-auto font-orbitron flex items-center justify-between  py-4 md:justify-start md:space-x-10 animate-top-left px-5">
+          <img src={logoImg} className="h-8 w-auto" alt="" />
+          <div className=" flex items-center justify-center md:flex md:flex-1 space-x-4 lg:w-0">
+            <Popover.Group as="nav" className="hidden space-x-10 md:flex mx-5">
+              {navItems.map((nav, i) => {
+                return (
+                  <a
+                    key={i}
+                    href={nav.route}
+                    className={`text-medium font-normal hover:text-[#fff]
+                     
+                     ${
+                       route == nav.route
+                         ? " text-[#fff] "
+                         : "text-[#9292C5]"
+                     }
+                  `}
+                  >
+                    <div className=" flex justify-center items-center">
+                      <span>{nav.label}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </Popover.Group>
 
-              <Link to="/">
-                <img
-                  className="hidden h-8 w-auto lg:block"
-                  src={logoImg}
-                  alt="Your Company"
+            <div className=" md:hidden">
+              <Popover.Button className=" inline-flex items-center justify-center  rounded-md  p-2">
+                <span className="sr-only">Open menu</span>
+                <Bars3Icon
+                  className="text-gray-300 h-6 w-6"
+                  aria-hidden="true"
                 />
-              </Link>
-            </div>
-            <div className="hidden sm:ml-24 sm:block">
-              <div className="flex space-x-4"></div>
+              </Popover.Button>
             </div>
           </div>
-          <div className="space-x-2 absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            <div className=" px-3 hidden md:flex items-center mx-auto  bg-gradient-to-b from-[#14142F] to-[#232757] h-10 rounded-md">
-              <img src={searchIcon} alt="" />
+          <div className="hidden sm:flex">
 
-              <input
-                className="text-white w-full bg-transparent h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                type="search"
-                name="search"
-                placeholder="Search by creator or item..."
-              />
+          <ConnectWalletBtn/>
+          </div>
+        </div>
+      </div>
+
+      <Transition
+        as={Fragment}
+        enter="duration-200 ease-out"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="duration-100 ease-in"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
+      >
+        <Popover.Panel
+          focus
+          className="fixed inset-0 transform transition md:hidden"
+        >
+          <div className="relative rounded-lg sm:bg-transparent bg-[#0E1128] h-screen w-screen ">
+            <div className=" border-b  border-graytext-gray-300 border-opacity-50 px-5 py-3">
+              <div className="flex items-center justify-between">
+                <div className="focus:border:0 flex items-center justify-center space-x-1 focus:outline-0 focus:ring-0">
+                  <img src={logoImg} alt="" />
+                </div>
+                <div className="mr-3">
+                  <Popover.Button className=" inline-flex items-center justify-center rounded-md  p-2">
+                    <XMarkIcon
+                      className="h-6 w-6 text-gray-300"
+                      aria-hidden="true"
+                    />
+                  </Popover.Button>
+                </div>
+              </div>
             </div>
-            <button className="h-9">
-              {/* <img src={bellIcon} className="mx-auto opacity-80" alt="" />
-            </button>
-            <button className="h-9 w-9 bg-gradient-to-b from-[#14142F] to-[#232757] rounded-lg border border-gray-500">
-              <img src={avatar} className="mx-auto h-7 w-7" alt=""/> */}
-              {/* <a
-                href="/Wallet"
-                className={`whitespace-nowrap rounded-full cursor-pointer 
-                  border-2 border-solid border-[#9B02FB] hidden md:flex py-2 px-6 bg-gradient-to-b  to-[#1B1E4C] from-[#141532] text-sm text-white hover:text-gray-100`}
-              >
-                connect wallet
-              </a> */}
-
-            </button>
+            <div className=" py-4 px-2">
+              <div className="mb-2 grid grid-cols-1 gap-y-1 gap-x-1">
+                {navItems.map((nav, i) => {
+                  return (
+                    <a
+                      key={i}
+                      href={nav.route}
+                      className={`rounded-md py-2 px-2 text-base   text-gray-300 font-bold hover:text-[#fff]
+                        ${
+                          (!route && i === 0) || route === nav.label
+                            ? "  text-[#fff] "
+                            : "text-gray-300"
+                        }
+                        `}
+                    >
+                      {nav.label}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            {/* code here */}
             <ConnectWalletBtn/>
+            {/* code here */}
           </div>
-        </div>
-      </div>
-
-      <div className={openNav ? "sm:hidden block" : "hidden"} id="mobile-menu">
-        <div className="space-y-1 pt-2 pb-3">
-          
-          <div>
-
-       
-          </div>
-        </div>
-      </div>
-    </nav>
+        </Popover.Panel>
+      </Transition>
+    </Popover>
   );
-};
-
-export default Navbar;
+}

@@ -9,7 +9,7 @@ function ConnectWalletBtn({
   onClick,
   setShowMediaIcons,
   normal = false,
-  title = "Connect",
+  title = "Connect Walet",
   style,
 }) {
   const { open } = useWeb3Modal();
@@ -23,8 +23,8 @@ function ConnectWalletBtn({
   return (
     <button
       style={style}
-      className={`whitespace-nowrap rounded-full cursor-pointer 
-      border-2 border-solid border-[#9B02FB]  md:flex py-2 px-6 bg-gradient-to-b  to-[#1B1E4C] from-[#141532] text-sm text-white hover:text-gray-100`}
+      className={`whitespace-nowrap rounded-lg font-bold cursor-pointer 
+      border-2 border-solid border-[#9B02FB] bottom-5 right-5 sm:left-auto sm:right-auto sm:bottom-auto  left-5 absolute sm:relative  md:flex py-2 px-6 nav-btn-gradient text-sm text-white hover:text-gray-100`}
       onClick={() => {
         if (address && chain.id !== mainnet.id) {
           switchNetwork(mainnet.id);
