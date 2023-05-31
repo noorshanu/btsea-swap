@@ -15,10 +15,10 @@ function Swap() {
      <div className="box w-full sm:w-[450px] h-auto flex flex-col  mx-auto  p-5 rounded-2xl self-center">
       <div className="flex justify-between items-center">
         <div className="flex gap-x-4 text-white">
-          <span className="cursor-pointer hover:opacity-100 font-bold opacity-70">
+          <span className="cursor-pointer hover:opacity-100 font-bold opacity-70 font-druk">
             Buy
           </span>
-          <span className="cursor-pointer hover:opacity-100 font-bold opacity-70">
+          <span className="cursor-pointer hover:opacity-100 font-bold opacity-70 font-druk">
             Swap
           </span>
         </div>
@@ -29,18 +29,18 @@ function Swap() {
       <div className="bg-black  mt-7 border border-white transition-all duration-300 border-opacity-30 hover:border-opacity-100 w-full rounded-xl flex py-3 px-3">
         <input
           type="number"
-          className="bg-transparent w-[100%] sm:flex-grow outline-none text-white mr-2"
+          className="bg-transparent w-[100%] sm:flex-grow outline-none text-white mr-2 font-druk"
           placeholder="0.00"
           value={swapValues[0]}
           onChange={(e) =>
             setSwapValues((currentValues) => [e.target.value, currentValues[1]])
           }
         />
-        <span className="text-[#9006EE] font-bold opacity-90 hover:opacity-100 cursor-pointer">
+        <span className="text-[#9006EE] font-bold opacity-90 hover:opacity-100 cursor-pointer font-druk">
           Max
         </span>
         <div className="h-full w-[0.5px] bg-gray-400 bg-opacity-80 mx-4" />
-        <div className="flex gap-x-3 font-bold text-white"  onClick={() => setSelectToken1Show(true)}>
+        <div className="flex gap-x-3 font-bold text-white font-druk"  onClick={() => setSelectToken1Show(true)}>
           <FaBitcoin size={25} className="  fill-white " />
           BTC
         </div>
@@ -56,7 +56,7 @@ function Swap() {
       <div className="bg-black  mb-7 border border-white transition-all duration-300 border-opacity-30 hover:border-opacity-100 w-full rounded-xl flex py-3 px-3">
         <input
           type="number"
-          className="bg-transparent w-[100%] sm:flex-grow outline-none text-white mr-2"
+          className="bg-transparent w-[100%] sm:flex-grow outline-none text-white mr-2 font-druk"
           placeholder="0.00"
           onChange={(e) =>
             setSwapValues((currentValues) => [currentValues[0], e.target.value])
@@ -64,7 +64,7 @@ function Swap() {
           value={swapValues[1]}
         />
         <div className="h-full w-[0.5px] bg-gray-400 bg-opacity-80 mx-4" />
-        <div className="flex gap-x-3 font-bold text-white" onClick={() => setSelectToken1Show(true)}>
+        <div className="flex gap-x-3 font-bold text-white font-druk" onClick={() => setSelectToken1Show(true)}>
           <FaBitcoin size={25} className="  fill-white " />
           BTC
         </div>
@@ -72,7 +72,7 @@ function Swap() {
           <BsArrowDownShort color="white" size={25} className="" />
         </button>
       </div>
-      <div className="w-full cursor-pointer border border-transparent hover:border-white transition-all duration-300 btn-gradient flex justify-center items-center font-bold text-white rounded-xl py-3 px-4">
+      <div className="w-full font-druk cursor-pointer border border-transparent hover:border-white transition-all duration-300 btn-gradient flex justify-center items-center font-bold text-white rounded-xl py-3 px-4">
         Swap
       </div>
     </div>

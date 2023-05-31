@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Druk";
+    src: url("../public/fonts/FontsFree-Net-Druk-Wide-Bold.ttf");
+
+  }
+  .font-druk {
+    font-family: "Druk";
+  }
 html{
     min-height: 100vh;
     background: #0E1128;

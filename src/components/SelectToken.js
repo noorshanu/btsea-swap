@@ -50,7 +50,7 @@ function SelectToken({ abi, data, setData, setSelectTokenShow }) {
       <div className="popContainer w-screen h-screen box sm:w-[550px] sm:h-fit sm:box rounded-[18px] ">
         <div className="flex justify-between px-6 pt-6">
           <div className="">
-            <h2 className="text-black sm:text-[#fff] font-moment font-[400] text-xl ">
+            <h2 className="text-black sm:text-[#fff] font-moment font-[400] text-xl font-druk">
               Select a token
             </h2>
           </div>
@@ -130,7 +130,7 @@ function SelectToken({ abi, data, setData, setSelectTokenShow }) {
                     height={56}
                   />
                   <div>
-                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1">
+                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1 font-druk">
                       Bitcoin
                     </h2>
                     <p className="text-[#7D7D7D] text-base text-[500]">BTC</p>
@@ -150,7 +150,7 @@ function SelectToken({ abi, data, setData, setSelectTokenShow }) {
                     height={56}
                   />
                   <div>
-                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1">
+                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1 font-druk">
                       Ether
                     </h2>
                     <p className="text-[#7D7D7D] text-base text-[500]">ETH</p>
@@ -170,7 +170,7 @@ function SelectToken({ abi, data, setData, setSelectTokenShow }) {
                     height={56}
                   />
                   <div>
-                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1">
+                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1 font-druk">
                       Tether
                     </h2>
                     <p className="text-[#7D7D7D] text-base text-[500]">USDT</p>
@@ -190,7 +190,7 @@ function SelectToken({ abi, data, setData, setSelectTokenShow }) {
                     height={56}
                   />
                   <div>
-                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1">
+                    <h2 className="text-black sm:text-white font-redHat font-[700] text-xl pr-1 font-druk">
                       USDC Coin
                     </h2>
                     <p className="text-[#7D7D7D] text-base text-[500]">USDC</p>
