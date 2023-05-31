@@ -4,12 +4,15 @@ import { FaBitcoin } from "react-icons/fa";
 import { BsArrowDownShort } from "react-icons/bs";
 import { AiOutlineSwap } from "react-icons/ai";
 import "./Modal.css";
-import ConnectWalletBtn from "./ConnectWalletBtn";
+import SelectToken from "./SelectToken";
+import TransitionWrapper from "./TransitionWrapper";
 
 function Swap() {
+  const [selectToken1Show, setSelectToken1Show] = useState(false);
   let [swapValues, setSwapValues] = useState([0.00, 5032.72]);
   return (
-    <div className="box w-full sm:w-[450px] h-auto flex flex-col  mx-auto  p-5 rounded-2xl self-center">
+    <>
+     <div className="box w-full sm:w-[450px] h-auto flex flex-col  mx-auto  p-5 rounded-2xl self-center">
       <div className="flex justify-between items-center">
         <div className="flex gap-x-4 text-white">
           <span className="cursor-pointer hover:opacity-100 font-bold opacity-70">
@@ -37,11 +40,11 @@ function Swap() {
           Max
         </span>
         <div className="h-full w-[0.5px] bg-gray-400 bg-opacity-80 mx-4" />
-        <div className="flex gap-x-3 font-bold text-white">
+        <div className="flex gap-x-3 font-bold text-white"  onClick={() => setSelectToken1Show(true)}>
           <FaBitcoin size={25} className="  fill-white " />
           BTC
         </div>
-        <button className="ml-3">
+        <button className="ml-3" onClick={() => setSelectToken1Show(true)}>
           <BsArrowDownShort color="white" size={25} className="" />
         </button>
       </div>
@@ -61,11 +64,11 @@ function Swap() {
           value={swapValues[1]}
         />
         <div className="h-full w-[0.5px] bg-gray-400 bg-opacity-80 mx-4" />
-        <div className="flex gap-x-3 font-bold text-white">
+        <div className="flex gap-x-3 font-bold text-white" onClick={() => setSelectToken1Show(true)}>
           <FaBitcoin size={25} className="  fill-white " />
           BTC
         </div>
-        <button className="ml-3">
+        <button className="ml-3" onClick={() => setSelectToken1Show(true)}>
           <BsArrowDownShort color="white" size={25} className="" />
         </button>
       </div>
@@ -73,6 +76,14 @@ function Swap() {
         Swap
       </div>
     </div>
+    <TransitionWrapper open={selectToken1Show}>
+    <SelectToken
+         
+          setSelectTokenShow={setSelectToken1Show}
+        />
+        </TransitionWrapper>
+    </>
+   
   );
 }
 

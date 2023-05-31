@@ -20,7 +20,15 @@ letter-spacing: 0em;
 text-align: left;
 
 }
-
+.bg-main{
+    background-image: url('../src/assets/bg.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nav-br{
+    border-bottom: 1px solid #ffffff24;
+}
 .btc-btn{
     background: linear-gradient(90deg, #9504F3 0%, #4129A1 100%);
 border-radius: 60px;
@@ -32,4 +40,13 @@ backdrop-filter: blur(2.5px);
 /* Note: backdrop-filter has minimal browser support */
 
 border-radius: 30px;
+}
+.swap-blur{
+    background: rgba(88, 47, 255, 0.4);
+filter: blur(173.5px);
+position: absolute;
+width: 786px;
+height: 786px;
+left: calc(50% - 786px/2);
+top: -343px;
 }

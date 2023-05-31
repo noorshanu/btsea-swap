@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     // bg-[#14141f]
     <Popover className="relative bg-transparent z-10 bg-[#0E1128]">
-      <div className="fixed top-0 left-0 right-0 bg-[#0E1128] w-screen">
+      <div className="fixed top-0 left-0 right-0 bg-[#0e112800] w-screen nav-br">
         <div className=" max-w-[87rem] mx-auto font-orbitron flex items-center justify-between  py-4 md:justify-start md:space-x-10 animate-top-left px-5">
           <img src={logoImg} className="h-8 w-auto" alt="" />
           <div className=" flex items-center justify-center md:flex md:flex-1 space-x-4 lg:w-0">
